@@ -42,6 +42,17 @@ export class UsuariosService {
     }
 
   }
+
+
+  
+  getTodoslosDatos() {
+
+    return this.tasks
+
+
+
+
+  }
   // findOne(id: number) {
   //   return `This action returns a #${id} usuario`;
   // }
