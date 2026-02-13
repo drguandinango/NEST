@@ -1,4 +1,6 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
+import { CreateTaskDto } from './dto/create-task-dto';
+import { UpdateTaskDto } from './dto/update-task-dto';
 // import { CreateUsuarioDto } from './dto/create-usuario.dto';
 // import { UpdateUsuarioDto } from './dto/update-usuario.dto';
 
@@ -24,7 +26,7 @@ export class UsuariosService {
   
     } */
 
-  createAll(task: any) {
+  createAll(task: CreateTaskDto) {
     console.log(task);
     this.tasks.push({
       ...task,
@@ -81,9 +83,10 @@ export class UsuariosService {
   //   return `This action returns a #${id} usuario`;
   // }
 
-  // update(id: number, updateUsuarioDto: UpdateUsuarioDto) {
-  //   return `This action updates a #${id} usuario`;
-  // }
+  update(task:UpdateTaskDto) {
+    console.log(task) ;
+    return `actualizandoooo`;
+  }
 
   // remove(id: number) {
   //   return `This action removes a #${id} usuario`;

@@ -1,5 +1,7 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, Put } from '@nestjs/common';
 import { UsuariosService } from './usuarios.service';
+import  { CreateTaskDto } from './dto/create-task-dto';
+import { UpdateTaskDto } from './dto/update-task-dto';
 
 
 @Controller('/usuarios')
@@ -12,7 +14,7 @@ export class UsuariosController {
 
   /////ojo aqui 
   @Post()
-  createAllss(@Body() task: any) {
+  createAllss(@Body() task: CreateTaskDto) {//modifico esto 
     return this.usuariosService.createAll(task);
   }
 
@@ -36,10 +38,10 @@ export class UsuariosController {
 
 
 
-  // @Post()
-  // create(@Body() createUsuarioDto: CreateUsuarioDto) {
-  //   return this.usuariosService.create(createUsuarioDto);
-  // }
+  @Put()
+  create(@Body() task:UpdateTaskDto ) {
+    return this.usuariosService.update(task);
+  }
 
   // @Get()
   // findAll() {
