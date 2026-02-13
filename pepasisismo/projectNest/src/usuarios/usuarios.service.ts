@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 // import { CreateUsuarioDto } from './dto/create-usuario.dto';
 // import { UpdateUsuarioDto } from './dto/update-usuario.dto';
 
@@ -36,8 +36,17 @@ export class UsuariosService {
 
 
 
+  /*           getTask(id: number) {
+              return this.tasks.find(task => task.id === id)
+            } */
+
+
+
   getTask(id: number) {
-    return this.tasks.find(task => task.id === id)
+    const taskFound = this.tasks.find(task => task.id === id)
+    if (!taskFound) { return new NotFoundException(`task with id ${id} not found`) }
+
+    return taskFound
   }
   /////////////
 
