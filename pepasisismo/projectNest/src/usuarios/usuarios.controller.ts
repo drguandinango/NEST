@@ -10,7 +10,7 @@ export class UsuariosController {
 //     return this.usuariosService.create();
 //   }
 
-
+/////ojo aqui 
  @Post()
   createAll(@Body() task:any) {
     return this.usuariosService.createAll(task);
