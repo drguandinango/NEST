@@ -12,7 +12,7 @@ export class UsuariosController {
 
   @Get()
   findAll() {
-    return this.usuariosService.findAll();
+    return this.usuariosService.getDatosServ();
   }
 
 
