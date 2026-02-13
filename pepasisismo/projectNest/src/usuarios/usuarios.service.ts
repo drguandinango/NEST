@@ -32,7 +32,14 @@ export class UsuariosService {
     });
     return task;
   }
-  
+  //crearse un task individual que el parameto lo recidba el controller 
+
+
+
+  getTask(id: number) {
+    return this.tasks.find(task => task.id === id)
+  }
+  /////////////
 
 
   getDatosServ(): User {

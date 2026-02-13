@@ -4,29 +4,33 @@ import { UsuariosService } from './usuarios.service';
 
 @Controller('/usuarios')
 export class UsuariosController {
-  constructor(private readonly usuariosService: UsuariosService) {}
-//  @Post()
-//   create() {
-//     return this.usuariosService.create();
-//   }
+  constructor(private readonly usuariosService: UsuariosService) { }
+  //  @Post()
+  //   create() {
+  //     return this.usuariosService.create();
+  //   }
 
-/////ojo aqui 
- @Post()
-  createAllss(@Body() task:any) {
+  /////ojo aqui 
+  @Post()
+  createAllss(@Body() task: any) {
     return this.usuariosService.createAll(task);
   }
 
 
 
-/* { //probar insertarr datos 
-"title": "Mi fffff tarea",
-"status":
- false
-} */
-
+  /* { //probar insertarr datos 
+  "title": "Mi fffff tarea",
+  "status":
+   false
+  } */
   @Get()
   findAll() {
     return this.usuariosService.getTodoslosDatos();
+  } ///=====> 
+
+  @Get('/:id')
+  getTask(@Param('id') id: string) {
+    return this.usuariosService.getTask(parseInt(id));
   }
 
 
