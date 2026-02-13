@@ -12,7 +12,7 @@ export class UsuariosController {
 
 /////ojo aqui 
  @Post()
-  createAll(@Body() task:any) {
+  createAllss(@Body() task:any) {
     return this.usuariosService.createAll(task);
   }
 

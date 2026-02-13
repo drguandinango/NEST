@@ -15,16 +15,24 @@ export class UsuariosService {
 
 
   private tasks = []
-///oojo aqui para crear uno por uno
+  ///oojo aqui para crear uno por uno
+  /*   createAll(task: any) {
+      console.log(task)
+      this.tasks.push(task)
+  
+      return task
+  
+    } */
+
   createAll(task: any) {
-
-    this.tasks.push(task)
-
-    return task
-
+    console.log(task);
+    this.tasks.push({
+      ...task,
+      id: this.tasks.length + 1,
+    });
+    return task;
   }
-
-
+  
 
 
   getDatosServ(): User {
@@ -44,7 +52,7 @@ export class UsuariosService {
   }
 
 
-  
+
   getTodoslosDatos() {
 
     return this.tasks
