@@ -13,23 +13,35 @@ export class UsuariosService {
     return 'This action adds a new usuario';
   }
 
- 
 
-  getDatosServ(): User { 
+  private tasks = []
+///oojo aqui para crear uno por uno
+  createAll(task: any) {
 
-  
+    this.tasks.push(task)
 
-  
+    return task
 
-        return{ 
+  }
 
-            name: 'Jhon Doe', 
 
-            age: 40 
 
-        } 
 
-    } 
+  getDatosServ(): User {
+
+
+
+
+
+    return {
+
+      name: 'Jhon Doe',
+
+      age: 40
+
+    }
+
+  }
   // findOne(id: number) {
   //   return `This action returns a #${id} usuario`;
   // }
