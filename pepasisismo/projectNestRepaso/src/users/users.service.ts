@@ -4,14 +4,24 @@ import { Injectable } from '@nestjs/common';
 @Injectable()
 export class UsersService {
 
-  private tasks=[]
+  private tasks = []
 
   createAlltasks(task: any) {
-    console.log(task)
-    this.tasks.push(task)
+    console.log(task);
 
-    return task
+    this.tasks.push({
+
+      ...task,
+
+      id: this.tasks.length + 1,
+//soloo asignado un id pero no recibido ni controlado es decir solo subi estte estract de codee para cont++
+    });
+
+    return task;
   }
+
+
+
   /* pos t 
   
   CreateAlltasks(task:any) 
@@ -20,10 +30,21 @@ export class UsersService {
   
   return task  */
 
+  /* Get 
+
+Getalltasks() 
+
+} 
+
+Return this.tasks; 
+
+}  */
 
 
-  findAll() {
-    return `This action returns all users`;
+
+  Getalltasks() {
+    return this.tasks;
+
   }
 
   // findOne(id: number) {

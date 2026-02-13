@@ -12,7 +12,9 @@ export class UsersController {
   }
 
   @Get()
-  findAll() {
+  findAllDatos() {
+        return this.usersService.Getalltasks() ;
+
   //  returnxx ;
   }
 
