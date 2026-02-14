@@ -1,5 +1,7 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, Query } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, Query, Put } from '@nestjs/common';
 import { TasksService } from './tasks.service';
+import type{CreateTaskDto} from './componets/create-task.dto'
+import type { UpdateTaskDto } from './componets/update-task.dto';
 
 @Controller('/tasks')
 export class TasksController {
@@ -8,9 +10,9 @@ export class TasksController {
 
 
   @Post()
-  createTask(@Body() task: any) {
+  createTask(@Body() task: CreateTaskDto) {
     return this.tasksService.create(task);
-  }
+  }//al crear una por uua n tomar el ditp
   // @Post()
   // create(@Body() createTaskDto: CreateTaskDto) {
   //   return this.tasksService.create(createTaskDto);
@@ -28,6 +30,11 @@ export class TasksController {
     return this.tasksService.findOne(parseInt(id));
   }
 
+
+   @Put()
+  update( @Body() task: UpdateTaskDto) {
+    return this.tasksService.updateTask(task);
+  }
   // @Patch(':id')
   // update(@Param('id') id: string, @Body() updateTaskDto: UpdateTaskDto) {
   //   return this.tasksService.update(+id, updateTaskDto);

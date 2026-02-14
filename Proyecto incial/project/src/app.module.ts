@@ -3,9 +3,10 @@ import { TasksModule } from './tasks/tasks.module';
 
 // import { AppController } from './app.controller';
 // import { AppService } from './app.service';
+import { UsersaModule } from './usersa/usersa.module';
 
 @Module({
-  imports: [TasksModule],
+  imports: [TasksModule, UsersaModule],
   // controllers: [AppController],
   // providers: [AppService],
 })
