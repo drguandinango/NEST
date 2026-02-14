@@ -2,23 +2,43 @@ import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class TasksService {
- 
-private tasks=[]
+  private tasks = [];
 
-   create(task:any) {
+  create(task: any) {
+    console.log(task);
 
-    this.tasks.push(task)
-    return task ;
+    this.tasks.push({
+      ...task,
+
+      id: this.tasks.length + 1,
+    });
+
+    return task;
   }
 
+  /*   createAll(task: any) { 
+
+    console.log(task); 
+
+    this.tasks.push({ 
+
+      ...task, 
+
+      id: this.tasks.length + 1, 
+
+    }); 
+
+    return task; 
+
+  }  */
 
   findAll() {
     return this.tasks;
   }
 
-  // findOne(id: number) {
-  //   return `This action returns a #${id} task`;
-  // }
+  findOne(id: number) {
+    return this.tasks.find((task) => task.id === id);
+  }
 
   // update(id: number,:) {
   //   return `This action updates a #${id} task`;
