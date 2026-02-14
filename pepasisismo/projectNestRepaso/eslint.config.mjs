@@ -31,28 +31,26 @@ export default tseslint.config(
       '@typescript-eslint/no-unsafe-argument': 'warn',
       "prettier/prettier": ["error", { endOfLine: "auto" }],
     },
-    , 
+    "prettier/prettier": [
 
-    "prettier/prettier" :[  
 
- 
 
-          "error",  
+      "error",
 
- 
 
-          {   
 
- 
+      {
 
-          "endOfLine":"auto"  
 
- 
 
-          }  
+        "endOfLine": "auto"
 
- 
 
-          ] 
+
+      }
+
+
+
+    ]
   },
 );
