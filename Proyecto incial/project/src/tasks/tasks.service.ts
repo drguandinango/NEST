@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 
 @Injectable()
 export class TasksService {
@@ -37,14 +37,19 @@ export class TasksService {
   }
 
   findOne(id: number) {
-    return this.tasks.find((task) => task.id === id);
+    const taskFound = this.tasks.find((task) => task.id === id);
+    if (!taskFound) {
+      return new NotFoundException(`task with id ${id} not found`);
+    }
+
+    return taskFound;
   }
-
-  // update(id: number,:) {
-  //   return `This action updates a #${id} task`;
-  // }
-
-  // remove(id: number) {
-  //   return `This action removes a #${id} task`;
-  // }
 }
+
+// update(id: number,:) {
+//   return `This action updates a #${id} task`;
+// }
+
+// remove(id: number) {
+//   return `This action removes a #${id} task`;
+// }
