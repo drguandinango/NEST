@@ -1,22 +1,50 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreateUsersaDto } from './dto/create-usersa.dto';
 import { UpdateUsersaDto } from './dto/update-usersa.dto';
 
 @Injectable()
 export class UsersaService {
-  create(createUsersaDto: CreateUsersaDto) {
-    return 'This action adds a new usersa';
+  private users = [];
+  createUsers(user: CreateUsersaDto) {
+    console.log(user);
+
+    this.users.push({
+      ...user,
+
+      id: this.users.length + 1,
+    });
+
+    return user
+
+    /*          console.log(task); 
+
+    this.tasks.push({ 
+
+      ...task, 
+
+      id: this.tasks.length + 1, 
+
+    }); 
+
+    return task;  */
   }
 
   findAll() {
-    return `This action returns all usersa`;
+    return this.users;
   }
 
   findOne(id: number) {
-    return `This action returns a #${id} usersa`;
+
+  const userFound = this.users.find(user => user.id === id) 
+
+    if (!userFound) { return new NotFoundException(`task with id ${id} not found`) } 
+
+ 
+
+    return userFound 
   }
 
-  update(id: number, updateUsersaDto: UpdateUsersaDto) {
+  update(id: number, user: UpdateUsersaDto) {
     return `This action updates a #${id} usersa`;
   }
 
