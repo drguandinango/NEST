@@ -1,6 +1,6 @@
-export interface UpdateTaskDto { 
+export class UpdateTaskDto { 
 
-title?: string 
+title?: string  
 
 description?: string 
 
