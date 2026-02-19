@@ -1,15 +1,16 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, Query, Put } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, Query, Put, UsePipes, /* ValidationPipe */ } from '@nestjs/common';
 import { TasksService } from './tasks.service';
-import type{CreateTaskDto} from './componets/create-task.dto'
-import type { UpdateTaskDto } from './componets/update-task.dto';
+import {CreateTaskDto} from './dto/create-task.dto'
+import { UpdateTaskDto } from './dto/update-task.dto';
 
-@Controller('/tasks')
+@Controller('/makas')
 export class TasksController {
   constructor(private readonly tasksService: TasksService) {}
 
 
 
   @Post()
+ 
   createTask(@Body() task: CreateTaskDto) {
     return this.tasksService.create(task);
   }//al crear una por uua n tomar el ditp
