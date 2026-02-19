@@ -29,11 +29,11 @@ export class TasksService {
     return taskFound;
   }
 
-  update(id: number, task: UpdateTaskDto) {
+/*   update(id: number, task: UpdateTaskDto) {
     return `This action updates a #${id} task`;
   }
 
   remove(id: number) {
     return `This action removes a #${id} task`;
-  }
+  } */
 }

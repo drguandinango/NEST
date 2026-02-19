@@ -23,7 +23,7 @@ export class TasksController {
     return this.tasksService.findOne(parseInt(id));
     
   }
-
+/* 
   @Patch(':id')
   update(@Param('id') id: string, @Body() task: UpdateTaskDto) {
     return this.tasksService.update(+id, task);
@@ -32,5 +32,5 @@ export class TasksController {
   @Delete(':id')
   remove(@Param('id') id: string) {
     return this.tasksService.remove(+id);
-  }
+  } */
 }
