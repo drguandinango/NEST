@@ -8,9 +8,11 @@ import {
   Query,
   Req,
   Res,
+  UseGuards,
 } from '@nestjs/common';
 import type { Request, Response } from 'express';
 import { ValidateuserPipe } from './pipes/validateuser/validateuser.pipe';
+import { AuthGuard } from './guards/auth/auth.guard';
 @Controller()
 export class HelloController {
   @Get('/')
@@ -48,6 +50,7 @@ export class HelloController {
   }
 
   @Get('active/:status')
+    @UseGuards(AuthGuard)
   isUserActive(@Param('status', ParseBoolPipe) status: boolean) {
     console.log(typeof status);
     return status;
@@ -55,8 +58,9 @@ export class HelloController {
 
 
 
-  
+
   @Get('greet')
+  @UseGuards(AuthGuard)
   greet(@Query(ValidateuserPipe) query: { name: string; age: number }) {
     console.log(typeof query.age);
     console.log(typeof query.name);
